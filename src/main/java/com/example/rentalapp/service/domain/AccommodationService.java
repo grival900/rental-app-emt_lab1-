@@ -1,6 +1,7 @@
-package com.example.rentalapp.service;
+package com.example.rentalapp.service.domain;
 
-import com.example.rentalapp.model.Accommodation;
+import com.example.rentalapp.model.domain.Accommodation;
+import com.example.rentalapp.model.exceptions.AccommodationNotFoundException;
 import com.example.rentalapp.repository.AccommodationRepository;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +40,7 @@ public class AccommodationService {
             acc.setRented(true);
             return accommodationRepository.save(acc);
         } else {
-            throw new RuntimeException("Accommodation not found");
+            throw new AccommodationNotFoundException(id);
         }
     }
 }

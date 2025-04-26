@@ -1,4 +1,4 @@
-package com.example.rentalapp.model;
+package com.example.rentalapp.model.domain;
 
 
 import jakarta.persistence.*;
@@ -6,7 +6,7 @@ import lombok.*;
 
 @Entity
 @Data
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 public class Host {
 
@@ -21,6 +21,14 @@ public class Host {
     @ManyToOne
     @JoinColumn(name = "country_id", nullable = false)
     private Country country;
+
+    public Host() {}
+
+    public Host(String name, String surname, Country country) {
+        this.name = name;
+        this.surname = surname;
+        this.country = country;
+    }
 
     public Long getId() {
         return id;

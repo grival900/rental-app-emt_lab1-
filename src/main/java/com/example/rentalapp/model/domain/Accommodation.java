@@ -1,12 +1,10 @@
-package com.example.rentalapp.model;
+package com.example.rentalapp.model.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Accommodation {
 
     @Id
@@ -25,6 +23,25 @@ public class Accommodation {
     private Integer numRooms;
 
     private boolean rented;
+
+    public Accommodation() {}
+
+    public Accommodation(String name, Category category, Host host, Integer numRooms, boolean rented) {
+        this.name = name;
+        this.category = category;
+        this.host = host;
+        this.numRooms = numRooms;
+        this.rented = rented;
+    }
+
+    public Accommodation(Long id, String name, Category category, Host host, Integer numRooms, boolean rented) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.host = host;
+        this.numRooms = numRooms;
+        this.rented = rented;
+    }
 
     public void setRented(boolean rented) {
         this.rented = rented;

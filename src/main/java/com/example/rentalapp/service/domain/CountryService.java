@@ -1,6 +1,6 @@
-package com.example.rentalapp.service;
+package com.example.rentalapp.service.domain;
 
-import com.example.rentalapp.model.Country;
+import com.example.rentalapp.model.domain.Country;
 import com.example.rentalapp.repository.CountryRepository;
 import org.springframework.stereotype.Service;
 

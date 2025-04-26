@@ -1,4 +1,4 @@
-package com.example.rentalapp.model;
+package com.example.rentalapp.model.domain;
 
 
 import jakarta.persistence.Entity;
@@ -9,7 +9,7 @@ import lombok.*;
 
 @Entity
 @Data
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 public class Country {
 
@@ -20,6 +20,13 @@ public class Country {
 
     private String name;
     private String continent;
+
+    public Country() {}
+
+    public Country(String name, String continent) {
+        this.name = name;
+        this.continent = continent;
+    }
 
     public void setName(String name) {
         this.name = name;
