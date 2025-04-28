@@ -61,10 +61,11 @@ public class JwtSecurityWebConfig {
                                 ).permitAll()   // auth endpoints public as well
 
 
-                                .requestMatchers(HttpMethod.GET,    "/api/accommodations/**").hasAnyRole("USER","HOST")
-                                .requestMatchers(HttpMethod.POST,   "/api/accommodations/**").hasRole("HOST")
-                                .requestMatchers(HttpMethod.PUT,    "/api/accommodations/**").hasRole("HOST")
-                                .requestMatchers(HttpMethod.DELETE, "/api/accommodations/**").hasRole("HOST")
+                                .requestMatchers(HttpMethod.GET,    "/api/accommodations/**").hasAnyRole("USER","HOST", "ADMIN")
+                                .requestMatchers(HttpMethod.POST,   "/api/accommodations/**").hasAnyRole("ADMIN", "HOST")
+                                .requestMatchers(HttpMethod.PUT,    "/api/accommodations/**").hasAnyRole("ADMIN", "HOST")
+                                .requestMatchers(HttpMethod.DELETE, "/api/accommodations/**").hasAnyRole("ADMIN", "HOST")
+                                .requestMatchers(HttpMethod.GET, "/api/accommodations/by-host").hasAnyRole("ADMIN", "HOST")
 
 
                                 .requestMatchers("/api/**").authenticated()

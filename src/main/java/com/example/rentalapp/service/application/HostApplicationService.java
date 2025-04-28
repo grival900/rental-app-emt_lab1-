@@ -5,6 +5,7 @@ import com.example.rentalapp.dto.CreateHostDto;
 import com.example.rentalapp.dto.HostDto;
 import com.example.rentalapp.model.domain.Country;
 import com.example.rentalapp.model.domain.Host;
+import com.example.rentalapp.model.projections.HostProjection;
 import com.example.rentalapp.service.domain.CountryService;
 import com.example.rentalapp.service.domain.HostService;
 import org.springframework.stereotype.Service;
@@ -50,5 +51,10 @@ public class HostApplicationService {
 
     public void delete(Long id) {
         hostService.deleteHost(id);
+    }
+
+
+    public List<HostProjection> getHostNames() {
+        return hostService.getHostNames();
     }
 }

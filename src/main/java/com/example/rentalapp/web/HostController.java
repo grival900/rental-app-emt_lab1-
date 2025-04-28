@@ -3,6 +3,7 @@ package com.example.rentalapp.web;
 import com.example.rentalapp.dto.CreateHostDto;
 import com.example.rentalapp.dto.HostDto;
 import com.example.rentalapp.model.domain.Host;
+import com.example.rentalapp.model.projections.HostProjection;
 import com.example.rentalapp.service.application.HostApplicationService;
 import com.example.rentalapp.service.domain.HostService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -56,5 +57,10 @@ public class HostController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/api/hosts/names")
+    public List<HostProjection> getHostNames() {
+        return hostService.getHostNames();
     }
 }

@@ -35,17 +35,17 @@ public class DataInitializer {
 
     @PostConstruct
     public void init() {
-        countryRepository.save(new Country("Texas", "N. America"));
-        countryRepository.save(new Country("Houston", "N. America"));
-        countryRepository.save(new Country("Macedonia", "Europe"));
-
-        hostRepository.save(new Host("Danilo", "Ivanov", countryRepository.findByName("Macedonia").orElseThrow()));
-        hostRepository.save(new Host("Olinad", "Evilov", countryRepository.findByName("Texas").orElseThrow()));
-        hostRepository.save(new Host("Oled", "Ekran", countryRepository.findByName("Houston").orElseThrow()));
-
-        accommodationRepository.save(new Accommodation("Trapot", Category.HOUSE, hostRepository.findByName("Danilo").orElseThrow(), 2, false));
-        accommodationRepository.save(new Accommodation("Sopiste", Category.HOTEL, hostRepository.findByName("Olinad").orElseThrow(), 6, false));
-        accommodationRepository.save(new Accommodation("Boba", Category.APARTMENT, hostRepository.findByName("Oled").orElseThrow(), 1, true));
+//        countryRepository.save(new Country("Texas", "N. America"));
+//        countryRepository.save(new Country("Houston", "N. America"));
+//        countryRepository.save(new Country("Macedonia", "Europe"));
+//
+//        hostRepository.save(new Host("Danilo", "Ivanov", countryRepository.findByName("Macedonia").orElseThrow()));
+//        hostRepository.save(new Host("Olinad", "Evilov", countryRepository.findByName("Texas").orElseThrow()));
+//        hostRepository.save(new Host("Oled", "Ekran", countryRepository.findByName("Houston").orElseThrow()));
+//
+//        accommodationRepository.save(new Accommodation("Trapot", Category.HOUSE, hostRepository.findByName("Danilo").orElseThrow(), 2, false));
+//        accommodationRepository.save(new Accommodation("Sopiste", Category.HOTEL, hostRepository.findByName("Olinad").orElseThrow(), 6, false));
+//        accommodationRepository.save(new Accommodation("Boba", Category.APARTMENT, hostRepository.findByName("Oled").orElseThrow(), 1, true));
 
         userRepository.save(new User(
                 "admin",

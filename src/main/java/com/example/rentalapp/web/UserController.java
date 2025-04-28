@@ -5,6 +5,7 @@ import com.example.rentalapp.dto.CreateUserDto;
 import com.example.rentalapp.dto.LoginResponseDto;
 import com.example.rentalapp.dto.LoginUserDto;
 import com.example.rentalapp.dto.UserDto;
+import com.example.rentalapp.model.domain.User;
 import com.example.rentalapp.model.exceptions.InvalidArgumentsException;
 import com.example.rentalapp.model.exceptions.InvalidUserCredentialsException;
 import com.example.rentalapp.model.exceptions.PasswordsDoNotMatchException;
@@ -16,6 +17,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -66,5 +69,9 @@ public class UserController {
         }
     }
 
+    @GetMapping("/api/users")
+    public List<User> listUsers() {
+        return userService.findAll();
+    }
 
 }

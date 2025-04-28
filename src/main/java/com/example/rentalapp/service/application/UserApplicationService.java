@@ -9,6 +9,7 @@ import com.example.rentalapp.security.JwtHelper;
 import com.example.rentalapp.service.domain.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -48,5 +49,9 @@ public class UserApplicationService{
 
     public Optional<UserDto> findByUsername(String username) {
         return Optional.of(UserDto.from(userService.findByUsername(username)));
+    }
+
+    public List<User> findAll(){
+        return userService.findAll();
     }
 }
